@@ -78,15 +78,17 @@
 						
 						<section class="split contact">
 							
+
 							<section>
 								<h3>Phone</h3>
-								<p><a href="#">(773) 454-5192</a></p>
+								<p><a href="#" onclick="copyToClipboard('(773) 454-5192', event)">(773) 454-5192</a></p>
 							</section>
 							<section>
 								<h3>Email</h3>
-								<p><a href="#">kristacaballero@ucsb.edu </a> <br/> 
-								<a href= "#"> kristacab7@gmail.com </a> </p>
-							</section>
+								<p><a href="#" onclick="copyToClipboard('kristacaballero@ucsb.edu', event)">kristacaballero@ucsb.edu</a> <br/>
+								<a href="#" onclick="copyToClipboard('kristacab7@gmail.com', event)">kristacab7@gmail.com</a></p>
+							</section>							
+	
 							<section>
 								<h3>Social</h3>
 								<ul class="icons alt">
@@ -113,6 +115,19 @@
 			<script src="assets/js/breakpoints.min.js"></script>
 			<script src="assets/js/util.js"></script>
 			<script src="assets/js/main.js"></script>
+
+
+			<script>
+			function copyToClipboard(text, event) {
+				event.preventDefault();
+				navigator.clipboard.writeText(text).then(() => {
+					const el = event.target;
+					const original = el.textContent;
+					el.textContent = "Copied!";
+					setTimeout(() => { el.textContent = original; }, 1500);
+				});
+			}
+			</script>
 
 	</body>			
 </html>
